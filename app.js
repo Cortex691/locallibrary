@@ -7,8 +7,10 @@ const mongoose = require("mongoose");
 const compression = require("compression");
 const helmet = require("helmet");
 
-const mongoDB =
+const dev_db_url =
   "mongodb+srv://Cortex:cortex1@cluster0.gqsz2.mongodb.net/local_library?retryWrites=true&w=majority";
+
+const mongoDB = process.env.MONGODB_URI || dev_db_url;
 
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 
